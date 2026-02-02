@@ -6,7 +6,7 @@
 /*   By: adahouk <ad396.pen@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 17:13:03 by adahouk           #+#    #+#             */
-/*   Updated: 2026/02/01 17:13:33 by adahouk          ###   ########.fr       */
+/*   Updated: 2026/02/02 18:25:51 by adahouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_free(char **str)
 		i++;
 	while (i >= 0)
 		free(str[i--]);
+	free(str);
 }
 
 int	is_sorted(t_stack **stack)

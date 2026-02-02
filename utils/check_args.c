@@ -6,7 +6,7 @@
 /*   By: adahouk <ad396.pen@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 17:12:55 by adahouk           #+#    #+#             */
-/*   Updated: 2026/02/01 19:14:35 by adahouk          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:17:32 by adahouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,12 @@ static int	ft_isnum(char *num)
 	int	i;
 
 	i = 0;
+	if (!num || !num[0])
+		return (0);
 	if (num[0] == '-')
 		i++;
+	if (!num[i])
+		return (0);
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
@@ -40,11 +44,18 @@ static int	ft_isnum(char *num)
 	return (1);
 }
 
+static void	ft_free_error(char **args, int should_free)
+{
+	if (should_free)
+		ft_free(args);
+	ft_error("Error");
+}
+
 void	ft_check_args(int argc, char **argv)
 {
 	int		i;
 	long	tmp;
-	char	**args;	
+	char	**args;
 
 	i = 0;
 	if (argc == 2)
@@ -58,11 +69,11 @@ void	ft_check_args(int argc, char **argv)
 	{
 		tmp = ft_atoi(args[i]);
 		if (!ft_isnum(args[i]))
-			ft_error("Error");
+			ft_free_error(args, argc == 2);
 		if (ft_contains(tmp, args, i))
-			ft_error("Error");
+			ft_free_error(args, argc == 2);
 		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_error("Error");
+			ft_free_error(args, argc == 2);
 		i++;
 	}
 	if (argc == 2)

@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adahouk <adahouk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adahouk <ad396.pen@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 14:35:28 by adahouk           #+#    #+#             */
-/*   Updated: 2025/08/30 15:19:53 by adahouk          ###   ########.fr       */
+/*   Updated: 2026/02/02 18:25:09 by adahouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
-	int	val;
-	int	i;
-	int	f;
+	long	val;
+	int		i;
+	int		f;
 
 	f = 1;
 	val = 0;
